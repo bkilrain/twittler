@@ -78,11 +78,13 @@ h1 > small {
   Main Section
   ========================================
 */
-
 .tweetle {
 	display: block;
-	margin: 40px;
+	margin: 20px;
 	
+}
+.tweetle:first-child {
+	margin-top: 40px;
 }
 .tweetle p {
 	font: 18px arial, sans-serif;
@@ -109,6 +111,28 @@ h1 > small {
 	padding-right: 15px;
 	font: 12px courier, serif;
 	float: right;
+}
+
+/*
+  ========================================
+  Navigation
+  ========================================
+*/
+
+.navi {
+	float: right;
+	position: relative;
+	right: 40px;
+	top: 40px;
+}
+.users {
+	padding-left: 0;
+	display: inline-block;
+	list-style: none;
+	margin: auto;
+}
+.user img {
+	border-radius: 50%;
 }
 
 /*

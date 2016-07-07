@@ -21,19 +21,36 @@
 
   	<header class="main-header group">
   		
-  		<img class="logo" src="images/bird-1232416_960_720.png" alt="bluebird">
+  		<img class="logo hidden-xs" src="images/bird-1232416_960_720.png" alt="bluebird">
 
   		<h1>Twittler <br><small>~The only Twitter Clone you need</small></h1>
 
   	</header>
 
+<!--User Navigation-->
+  	<nav class="navi">
+  		<div class="well">
+  		<ul class=users>
+  			<li class="user" id="shawndrost"><img src="images/shawndrost.jpg" alt="Shawn Drost"> Shawn Drost</li>
+  			<li class="user" id="sharksforcheap"><img src="images/sharksforcheap.jpg" alt="Anthony Phillips"> Anthony Phillips</li>
+  			<li class="user" id="mracus"><img src="images/mracus.jpg" alt="Marcus Phillips"> Marcus Phillips</li>
+  			<li class="user" id="douglascalhoun"><img src="images/douglascalhoun.jpg" alt="Douglas Calhoun"> Douglas Calhoun</li>
+  		</ul>
+  		</div>
+  	</nav>
+
+  	
   	<!--Main Section-->
 
-
-  	<section>
-  		<div class="tweets">
+  	<section class="container-fluid">
+  		<div class="row">
+  			<div class="tweets col-sm-8 col-sm-offset-1">
+  			</div>
   		</div>
   	</section>
+
+  	
+
   		<div class="push"></div>
   	</div>
   	<!--Footer-->
@@ -56,19 +73,31 @@
         var addTweets = function() {
         	while(index < streams.home.length){
         	  var tweet = streams.home[index];
-        	  var $tweet = $('<div class="tweetle"><div class="panel panel-default panelStyle"><img><div class="panel-body"><p></p></div><span class="timeStamp" data-livestamp="' + tweet.created_at + '"></span></div></div>'); //Setup tweet template
+        	  var $tweet = $('<div class="tweetle" id="' + tweet.user + '"><div class="panel panel-default panelStyle"><img><div class="panel-body"><p></p></div><span class="timeStamp" data-livestamp="' + tweet.created_at + '"></span></div></div>'); //Setup tweet template
         	  $tweet.find('p').html('<span class="userName">@' + tweet.user + ':</span> ' + tweet.message); 
       	      $tweet.find('img').attr('src', 'images/' + tweet.user + '.jpg'); //Add avatar to tweet
         	  $tweet.appendTo($body).hide().fadeIn();
     	      index++;
+
+    	      //view user feed
+        	  $(".userName").on("click", function() {
+        	  
+        	  var user = $(this).closest('.tweetle').attr('id');
+        	  console.log(user);
+        	  $(".tweetle").not("#" + user).fadeOut();
+        	  });
 	        }
 		}
+
         //Add new tweets
         var checkTweets = function() {
         	addTweets();
-        	
         }
         var newTweets = window.setInterval(checkTweets, 500);
+
+        
+
+
 
       });
 
