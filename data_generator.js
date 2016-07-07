@@ -16,7 +16,7 @@ window.users = Object.keys(streams.users);
 // utility function for adding tweets to our data structures
 var addTweet = function(newTweet){
   var username = newTweet.user;
-  streams.users[username].push(newTweet);
+  //streams.users[username].push(newTweet);  // This line was causing problems... so I took care of it
   streams.home.push(newTweet);
 };
 
@@ -65,5 +65,7 @@ var writeTweet = function(message){
   var tweet = {};
   tweet.user = visitor;
   tweet.message = message;
+  tweet.created_at = Math.floor(Date.now() / 1000);
+  console.log(tweet);
   addTweet(tweet);
 };
