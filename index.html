@@ -7,9 +7,6 @@
     
     <title>Twittler</title>
 
-    <!-- Bootstrap -->
-    
-
     <!-- Original scripts & CSS link -->
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
@@ -24,7 +21,7 @@
 
   	<header class="main-header group">
   		
-  		<img class="logo" src="images/bird-1232416_960_720.png">
+  		<img class="logo" src="images/bird-1232416_960_720.png" alt="bluebird">
 
   		<h1>Twittler <br><small>~The only Twitter Clone you need</small></h1>
 
@@ -54,8 +51,9 @@
         var index = streams.home.length - 1;
         while(index >= 0){
           var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
+          var $tweet = $('<div class="tweetle"><img><div class="panel panel-default panelStyle"><div class="panel-body"><p></p></div></div></div>');
+          $tweet.find("p").text('@' + tweet.user + ': ' + tweet.message);
+          $tweet.find('img').attr('src', 'images/' + tweet.user + '.jpg');
           $tweet.appendTo($body);
           index -= 1;
         }
