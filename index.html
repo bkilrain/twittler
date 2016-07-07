@@ -41,7 +41,9 @@
 
   	</footer>
 
-
+  	<script src="moment.js"></script>
+  	<script src="bootstrap.min.js"></script>
+  	<script src="livestamp.min.js"></script>
     <script>
 
       $(document).ready(function(){
@@ -49,20 +51,28 @@
         $body.html('');
 
         var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div class="tweetle"><img><div class="panel panel-default panelStyle"><div class="panel-body"><p></p></div></div></div>');
-          $tweet.find("p").text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.find('img').attr('src', 'images/' + tweet.user + '.jpg');
-          $tweet.appendTo($body);
-          index -= 1;
+        var addTweets = function() {
+        	while(index >= 0){
+        	  var tweet = streams.home[index];
+        	  var $tweet = $('<div class="tweetle"><div class="panel panel-default panelStyle"><img><div class="panel-body"><p></p></div><span class="timeStamp" data-livestamp="' + tweet.created_at + '"></span></div></div>'); //Setup tweet template
+        	  $tweet.find('p').html('<span class="userName">@' + tweet.user + ':</span> ' + tweet.message); 
+      	      $tweet.find('img').attr('src', 'images/' + tweet.user + '.jpg'); //Add avatar to tweet
+        	  $tweet.appendTo($body);
+    	      index -= 1;
+	        }
+		}
+        //Add new tweets
+        var checkTweets = function() {
+        	index = streams.home.length - 1;
+        	addTweets();
         }
+        var newTweets = window.setInterval(checkTweets, 500);
 
       });
 
     </script>
 
-    <script src="bootstrap.min.js"></script>
+    
   </body>
  
 </html>

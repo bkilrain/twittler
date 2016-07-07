@@ -32,6 +32,8 @@ html, body {
 }
 
 header, footer {
+	display: block;
+	width: 100%;
 	background-color: #a31ebd;
 	position: relative;
 }
@@ -65,7 +67,10 @@ h1 > small {
 
 .logo {
 	display: inline-block;
+	position: relative;
+	bottom: -20px;
 	padding-left: 20px;
+	float: left;
 }
 
 /*
@@ -81,20 +86,29 @@ h1 > small {
 }
 .tweetle p {
 	font: 18px arial, sans-serif;
-	margin-left: 15px;
+	margin-left: 25px;
+}
+.userName {
+	font-size: 24px;
 }
 .tweetle img {
 	float: left;
-	position: relative;
+	position: absolute;
 	border-radius: 50%;
-	height: 60px;
+	height: 70px;
 	top: -20px;
-	left: 30px;
+	left: -30px;
 	margin: -6px 0 22px 0;
 }
 .panelStyle {
 	display: inline-block;
+	position: relative;
 
+}
+.timeStamp {
+	padding-right: 15px;
+	font: 12px courier, serif;
+	float: right;
 }
 
 /*
