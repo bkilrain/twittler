@@ -29,8 +29,10 @@
 
   	<!--Main Section-->
 
-  	<section>
 
+  	<section>
+  		<div class="tweets">
+  		</div>
   	</section>
   		<div class="push"></div>
   	</div>
@@ -47,24 +49,24 @@
     <script>
 
       $(document).ready(function(){
-        var $body = $('section');
+        var $body = $('.tweets');
         $body.html('');
 
-        var index = streams.home.length - 1;
+        var index = 0;
         var addTweets = function() {
-        	while(index >= 0){
+        	while(index < streams.home.length){
         	  var tweet = streams.home[index];
         	  var $tweet = $('<div class="tweetle"><div class="panel panel-default panelStyle"><img><div class="panel-body"><p></p></div><span class="timeStamp" data-livestamp="' + tweet.created_at + '"></span></div></div>'); //Setup tweet template
         	  $tweet.find('p').html('<span class="userName">@' + tweet.user + ':</span> ' + tweet.message); 
       	      $tweet.find('img').attr('src', 'images/' + tweet.user + '.jpg'); //Add avatar to tweet
-        	  $tweet.appendTo($body);
-    	      index -= 1;
+        	  $tweet.appendTo($body).hide().fadeIn();
+    	      index++;
 	        }
 		}
         //Add new tweets
         var checkTweets = function() {
-        	index = streams.home.length - 1;
         	addTweets();
+        	
         }
         var newTweets = window.setInterval(checkTweets, 500);
 
