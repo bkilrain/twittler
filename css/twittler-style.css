@@ -1,0 +1,98 @@
+/*
+  ========================================
+  Clearfix
+  ========================================
+*/
+
+.group:before, 
+.group:after {
+	content: "";
+	display: table;
+}
+.group:after {
+	clear: both;
+}
+.group {
+	clear: both;
+	*zoom: 1;
+}
+
+/*
+  ========================================
+  Main styles
+  ========================================
+*/
+
+* {
+	margin: 0;
+}
+html, body {
+	height: 100%;
+}
+
+header, footer {
+	background-color: #a31ebd;
+	position: relative;
+}
+h1, h2, h3, h4 {
+	font-family: 'Nova Square', Arial, sans-serif;
+}
+h1 {
+	font-size: 60px;
+}
+
+
+/*
+  ========================================
+  Header
+  ========================================
+*/
+
+.main-header h1 {
+	margin: 0;
+	padding: 27px;
+	display: inline-block;
+	float: right;
+	color: #c9c9c9;
+	line-height: 20px;
+
+}
+h1 > small {
+	color: #38bd1e;
+	font-size: 20px;
+}
+
+.logo {
+	display: inline-block;
+	padding-left: 20px;
+}
+
+/*
+  ========================================
+  Footer
+  ========================================
+*/
+
+.wrapper {
+	min-height: 100%;
+	margin: 0 auto -55px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+	height: 55px; /* .push must be the same height as .footer */
+}
+
+/*
+
+Sticky Footer by Ryan Fait
+http://ryanfait.com/
+
+*/
+
+.main-footer  h3 {
+	padding: 15px 0 15px 20px;
+	color: #c9c9c9;
+
+}
+.main-footer span {
+	color: #38bd1e;
+}
