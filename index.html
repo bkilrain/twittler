@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
     <title>Twittler</title>
 
     <!-- Original scripts & CSS link -->
@@ -13,18 +12,14 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/twittler-style.css">
     <link href="https://fonts.googleapis.com/css?family=Nova+Square" rel="stylesheet">
-
   </head>
   <body>
   <div class="wrapper">
-  	<!--Header-->
 
+<!--Header-->
   	<header class="main-header group">
-  		
   		<img class="logo hidden-xs" src="images/bird-1232416_960_720.png" alt="bluebird">
-
   		<h1>Twittler <br><small>~The only Twitter Clone you need</small></h1>
-
   	</header>
 
 <!--User Navigation & Tweetle field-->
@@ -40,15 +35,12 @@
   		<button type="button" class="btn btn-info show">Show All</button>
   		</div>
 
-  		
+<!--Submit Tweet-->
   			<label>Send a Tweetle</label>
   			<input type="text" id="sendTweetle" placeholder="Tweetle!">
   			<button class="btn btn-primary pull-right" id="submitTweetle">Submit</button>
-  		
-  	
   	</nav>
 
-  	
   	<!--Main Section-->
 
   	<section class="container-fluid">
@@ -57,8 +49,6 @@
   			</div>
   		</div>
   	</section>
-
-  	
 
   		<div class="push"></div>
   	</div>
@@ -85,20 +75,18 @@
         	while(index < streams.home.length){
         	  var tweet = streams.home[index];
         	  var $tweet = $('<div class="tweetle" id="' + tweet.user + '"><div class="panel panel-default panelStyle"><img><div class="panel-body"><p></p></div><span class="timeStamp" data-livestamp="' + tweet.created_at + '"></span>' + moment.unix(tweet.created_at).format('lll') + '</div></div>'); //Setup tweet template
-        	  $tweet.find('p').html('<span class="userName">@' + tweet.user + ':</span> ' + tweet.message); 
+        	  $tweet.find('p').html('<span class="userName">@' + tweet.user + ':</span> ' + tweet.message);
       	      $tweet.find('img').attr('src', 'images/' + tweet.user + '.jpg'); //Add avatar to tweet
 
-
       	      //check if user is selected and show
-      	      if (user === "all" || user === tweet.user) { 
+      	      if (user === "all" || user === tweet.user) {
       	      	$tweet.appendTo($body).hide().fadeIn();
       	      } else {
       	      	$tweet.appendTo($body).hide();
       	      }
-
     	      index++;
 	        }
-		}
+		    }
 
         //Add new tweets
         var checkTweets = function() {
@@ -123,16 +111,7 @@
         	writeTweet($("#sendTweetle").val());
         	$("#sendTweetle").val('');
         });
-
-
-
-
-
       });
-
     </script>
-
-    
   </body>
- 
 </html>
