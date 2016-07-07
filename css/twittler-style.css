@@ -78,13 +78,13 @@ h1 > small {
   Main Section
   ========================================
 */
+.tweets {
+	margin-top: 40px;
+}
 .tweetle {
 	display: block;
 	margin: 20px;
 	
-}
-.tweetle:first-child {
-	margin-top: 40px;
 }
 .tweetle p {
 	font: 18px arial, sans-serif;
@@ -129,10 +129,11 @@ h1 > small {
 	padding-left: 0;
 	display: inline-block;
 	list-style: none;
-	margin: auto;
+	
 }
 .user img {
 	border-radius: 50%;
+	margin-bottom: 15px;
 }
 
 /*
